@@ -19,7 +19,7 @@ while True:
     k = cv2.waitKey(1)
     if k%256 == 27:
         
-        print("Escape hit, closing...")
+        print("closing...")
         break
     elif k%256 == 32:
        
