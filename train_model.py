@@ -5,7 +5,7 @@ import cv2
 import os
 
 
-print("[INFO] start processing faces...")
+print("[INFO] start learning users...")
 imagePaths = list(paths.list_images("dataset"))
 
 
@@ -40,7 +40,6 @@ for (i, imagePath) in enumerate(imagePaths):
 		knownNames.append(name)
 
 
-print("[INFO] serializing encodings...")
 data = {"encodings": knownEncodings, "names": knownNames}
 f = open("encodings.pickle", "wb")
 f.write(pickle.dumps(data))
