@@ -1,6 +1,4 @@
 #! /usr/bin/python
-
-# import the necessary packages
 from imutils.video import VideoStream
 from imutils.video import FPS
 import face_recognition
@@ -41,9 +39,6 @@ fps = FPS().start()
 
 while True:
     
-
-	
-	
 	frame = vs.read()
 	frame = imutils.resize(frame, width=500)
 	
@@ -51,51 +46,33 @@ while True:
 	
 	encodings = face_recognition.face_encodings(frame, boxes)
 	names = []
-	
-	
-
-	
+		
 	for encoding in encodings:
         
 		
 		matches = face_recognition.compare_faces(data["encodings"],
 			encoding)
 		name = "???"
-		
-
-		
-       
-		
+			
 		if True in matches:
 			
 			
 			matchedIdxs = [i for (i, b) in enumerate(matches) if b]
 			counts = {}
 			
-
 			for i in matchedIdxs:
 				name = data["names"][i]
 				counts[name] = counts.get(name, 0) + 1
-				
-        
-
-			
+							
 			name = max(counts, key=counts.get)
-
 			
 			if currentname != name:
 				currentname = name
 				print(currentname)
 				val = '1'          
-			
-
-
-
-
-		
+				
 		names.append(name)
         
-
 	
 	for ((top, right, bottom, left), name) in zip(boxes, names):
 		
@@ -114,17 +91,9 @@ while True:
 		ser.write(val)
                     
 
-
-	
-	
-
-	
 	if key == ord("q"):
 		break
-	
-        
-
-	
+		
 	fps.update()
 
 
@@ -132,18 +101,7 @@ fps.stop()
 print("[INFO] elasped time: {:.2f}".format(fps.elapsed()))
 print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
 
-# while True:
-#     if ser.readable():
-#         print("Door open:1 , Exit: 3")
-#         val = input()
-# 
-#         if val == '1':
-#             val = val.encode('utf-8')
-#             ser.write(val)
-# 
-#             
-#         elif val == "3":
-#             break
+
 
 cv2.destroyAllWindows()
 vs.stop()
