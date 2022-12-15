@@ -12,7 +12,6 @@ imagePaths = list(paths.list_images("dataset"))
 knownEncodings = []
 knownNames = []
 
-
 for (i, imagePath) in enumerate(imagePaths):
 	
 	print("[INFO] processing image {}/{}".format(i + 1,
