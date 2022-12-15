@@ -26,7 +26,6 @@ void loop() {
   }
 }
 
-
 //int data;
 //
 //void setup() {
