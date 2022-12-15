@@ -17,7 +17,7 @@ import RPi.GPIO as GPIO
 ser = serial.Serial('/dev/ttyACM0', 9600)
 time.sleep(1)
 
-val = '0'
+val = '2'
 currentname = "unknown"
 
 encodingsP = "encodings.pickle"
